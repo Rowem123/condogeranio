@@ -1,6 +1,6 @@
 <?php  
   include("cabecera.php");
-  include("menu.php");
+  include("menu_residente.php");
   include("modelo/m_usuarios.php");
 $modificar=new m_usuarios();
 $mod= $modificar->leer_usuario_e3($_SESSION['id_persona']);
