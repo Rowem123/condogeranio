@@ -80,7 +80,11 @@ class c_usuarios extends m_usuarios
                     }
                     else
                     {
-                       echo '<meta http-equiv="refresh" content="0;url=../inicio.php?id='.$z['id_persona'].'">';
+                        if($_SESSION['id_persona']<100){
+                            echo '<meta http-equiv="refresh" content="0;url=../inicio_residente.php?id='.$z['id_persona'].'">';
+                        }else{
+                            echo '<meta http-equiv="refresh" content="0;url=../inicio.php?id='.$z['id_persona'].'">';
+                        }
 
                     }
                     die(); 
@@ -139,6 +143,25 @@ class c_usuarios extends m_usuarios
                 else
                 {
                     echo '<meta http-equiv="refresh" content="0;url=../registro_nueva_contraseña.php?id=0">';
+                }
+            }
+            elseif ($entrada=='Actualizar contraseña')
+            {
+		if ($_POST['clave']===$_POST['c_clave'])
+                {
+                    $result = $opcion ->recuperar_contraseña2($_POST['id_persona'], $_POST['clave']);
+                    if ($result==true) 
+                    {
+                        echo '<meta http-equiv="refresh" content="0;url=../personas_residente.php?id=0">';
+                    }
+                    else
+                    {
+                        echo '<meta http-equiv="refresh" content="0;url=../personas_residente.php?id=1">';
+                    }	
+                }
+                else
+                {
+                    echo '<meta http-equiv="refresh" content="0;url=../actualizar_contraseña.php?id=0">';
                 }
             }
 	

@@ -64,6 +64,31 @@ class c_personas extends m_personas
 			}	
 
 		}
+                elseif ($entrada=='Finalizar')
+		{
+			$result = $opcion ->modificar_persona($_POST['id_persona'], $_POST['id_persona_n'], $_POST['nombres'], $_POST['apellidos'], $_POST['cedula'], $_POST['telefono'], $_POST['correo_electronico'], $_POST['casa']);
+                        if (($result==true)) 
+			{
+				echo '<meta http-equiv="refresh" content="0;url=../personas_residente.php?id=4">';
+			}
+			else
+			{
+				echo '<meta http-equiv="refresh" content="0;url=../personas_residente.php?id=5">';
+			}	
+
+		}
+                elseif ($entrada=='Actualizar datos')
+		{
+			
+                    echo '<meta http-equiv="refresh" content="0;url=../registro_actualizar_personas_residentes.php">';
+
+		}
+                elseif ($entrada=='Cambiar clave')
+		{
+			
+                    echo '<meta http-equiv="refresh" content="0;url=../actualizar_contraseña.php">';
+
+		}
                 elseif ($entrada=='cambiar_estado')
 		{
                     $result = $opcion ->leer_persona_estado($_REQUEST['id']);

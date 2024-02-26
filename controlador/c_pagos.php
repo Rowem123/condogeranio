@@ -24,7 +24,12 @@ class c_pagos extends m_pagos
                        
 			if ($result==true) 
 			{
-				echo '<meta http-equiv="refresh" content="0;url=../pagos.php?id=0">';
+                            if($_SESSION['id_persona']<100)
+                            {
+                            echo '<meta http-equiv="refresh" content="0;url=../pagos_residente.php?id=0">';
+                            }else{
+                            echo '<meta http-equiv="refresh" content="0;url=../pagos.php?id=0">';    
+                            }
 			}
 			else
 			{
