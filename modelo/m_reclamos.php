@@ -56,6 +56,22 @@ class m_reclamos extends database
                 return false;
             }
 	}
+        public function leer_reclamo_residente($id_persona)
+	{
+            $query= "SELECT * FROM reclamos WHERE id_persona=".$id_persona;
+            $result =mysqli_query($this->link,$query);
+            $data   = array();
+            if(mysqli_affected_rows($this->link)>0)
+            {
+                while ($data[]=mysqli_fetch_assoc($result));
+                    array_pop($data);
+                    return $data;
+            }
+            else
+            {	
+                return false;
+            }
+	}
 
 	public function leer_reclamo_e($id_reclamo)
 	{

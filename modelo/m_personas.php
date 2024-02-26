@@ -70,6 +70,19 @@ class m_personas extends database
                 return false;
             }
 	}
+        public function leer_persona_clave($id_persona)
+	{
+            $query= "SELECT clave FROM usuarios WHERE id_persona=".$id_persona;
+            $result =mysqli_query($this->link,$query);
+            if(mysqli_affected_rows($this->link)>0)
+            {
+                return mysqli_fetch_assoc($result);
+            }
+            else
+            {
+                return false;
+            }
+	}
         
         public function leer_persona_id()
         {

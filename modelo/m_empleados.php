@@ -87,7 +87,7 @@ class m_empleados extends database
 
 	public function leer_empleado_e($id_persona)
 	{
-            $query= "SELECT * FROM empleados WHERE id_empleado=".$id_persona;
+            $query= "SELECT * FROM empleados WHERE id_persona=".$id_persona;
             $result =mysqli_query($this->link,$query);
             if(mysqli_affected_rows($this->link)>0)
             {

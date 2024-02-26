@@ -112,6 +112,19 @@ public function leer_usuario()
                 return false;
             }
 	}
+        public function leer_usuario_e3($id_persona)
+	{
+            $query= "SELECT * FROM usuarios WHERE id_persona=".$id_persona;
+            $result =mysqli_query($this->link,$query);
+            if(mysqli_affected_rows($this->link)>0)
+            {
+                return mysqli_fetch_assoc($result);
+            }
+            else
+            {
+                return false;
+            }
+	}
         
         public function leer_usuario_idp($usuario)
 	{
@@ -158,6 +171,20 @@ public function leer_usuario()
         public function recuperar_contraseña($id_usuario, $clave)
 	{
             $query= "UPDATE usuarios SET clave='$clave' WHERE id_usuario=".$id_usuario;
+            $result =mysqli_query($this->link,$query);
+            if ($result=== TRUE) 
+            {
+		return true;
+            }
+            else
+            {
+                return false;
+            }
+			
+	}
+        public function recuperar_contraseña2($id_persona, $clave)
+	{
+            $query= "UPDATE usuarios SET clave='$clave' WHERE id_persona=".$id_persona;
             $result =mysqli_query($this->link,$query);
             if ($result=== TRUE) 
             {

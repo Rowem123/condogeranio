@@ -56,16 +56,19 @@ class m_pagos extends database
             }
 	}
 
-	public function leer_pago_e($id_pago)
+	public function leer_pago_residente($id_persona)
 	{
-            $query= "SELECT * FROM pagos WHERE id_pago=".$id_pago;
+            $query= "SELECT * FROM pagos WHERE id_persona=".$id_persona;
             $result =mysqli_query($this->link,$query);
+            $data   = array();
             if(mysqli_affected_rows($this->link)>0)
             {
-                return mysqli_fetch_assoc($result);
+                while ($data[]=mysqli_fetch_assoc($result));
+                    array_pop($data);
+                    return $data;
             }
             else
-            {
+            {	
                 return false;
             }
 	}
